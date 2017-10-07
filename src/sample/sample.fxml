@@ -1,45 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.CheckBox?>
-<?import javafx.scene.control.DatePicker?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.Circle?>
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400" prefWidth="600"
-        fx:controller="sample.Controller"
-          xmlns="http://javafx.com/javafx/8.0.112"
-          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
-    <children>
-        <GridPane prefWidth = "100" prefHeight = "100" GridPane.columnIndex="1"/>
-        <Button fx:id="VampLords" onAction= "#gitgud" text = "not OP" GridPane.columnIndex="2"/>
-        <DatePicker fx:id = "Troll" onMouseClicked="#tell_me" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
-    </children>
+<VBox prefHeight="800" prefWidth="800"
+      fx:controller="sample.Controller"
+      xmlns="http://javafx.com/javafx/8.0.112"
+      xmlns:fx="http://javafx.com/fxml/1" alignment="center">
 
-    <Circle fx:id = "doom" fill = "4b6b8a" radius = "30" stroke="BLACK" strokeType="INSIDE" strokeWidth="10" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+    <MenuBar>
+        <menus>
+            <Menu  text="storyline">
+                <items>
+                    <MenuItem  text = "die in hell"/>
+                    <MenuItem text = "or maybe not"/>
+                </items>
+            </Menu>
+            <Menu  text="ways to die">
+                <items>
+                    <MenuItem mnemonicParsing="false" text = "Suffocation" onAction= "#gitgud"/>
+                </items>
+            </Menu>
+        </menus>
+    </MenuBar>
+
+
+
+
    <BorderPane prefHeight="50" prefWidth="50" GridPane.rowIndex = "1">
-       <MenuBar>
-           <menus>
-               <Menu mnemonicParsing="false" text="storyline">
-                   <items>
-                       <MenuItem mnemonicParsing="false" text = "die in hell"/>
-                       <MenuItem mnemonicParsing="true" text = "or maybe not"/>
-                   </items>
-               </Menu>
-               <Menu mnemonicParsing="false" text="ways to die">
-                   <items>
-                       <MenuItem mnemonicParsing="false" text = "Suffocation" onAction= "#gitgud"/>
-                   </items>
-               </Menu>
-           </menus>
-       </MenuBar>
+       <top>
+           <Circle fx:id = "doom" fill = "4b6b8a" radius = "30"
+                   stroke="BLACK" strokeType="INSIDE" strokeWidth="10" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+       </top>
+       <left>
+           <DatePicker fx:id = "Troll" onMouseExited="#tell_me" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+       </left>
+       <right>
+           <Button fx:id="VampLords" onAction= "#gitgud" text = "not OP" GridPane.columnIndex="2"/>
+       </right>
    </BorderPane>
 
-</GridPane>
+</VBox>
